@@ -20,52 +20,61 @@
 
       <ng-container *ngIf="!isLoading">
         <ng-container *ngIf="product; else notFoundState">
-          <dl class="row detail-list mb-4">
-            <div class="col-12 col-md-6">
-              <dt>Product ID</dt>
-              <dd data-testid="product-detail-id">{{ product.id }}</dd>
-            </div>
-            <div class="col-12 col-md-6">
-              <dt>Product Name</dt>
-              <dd data-testid="product-detail-name">{{ product.name }}</dd>
-            </div>
-            <div class="col-12">
-              <dt>Description</dt>
-              <dd data-testid="product-detail-description">{{ product.description || '-' }}</dd>
-            </div>
-            <div class="col-12 col-md-6">
-              <dt>Category</dt>
-              <dd data-testid="product-detail-category">{{ product.category }}</dd>
-            </div>
-            <div class="col-12 col-md-6">
-              <dt>Price</dt>
-              <dd data-testid="product-detail-price">{{ product.price | number: '1.2-2' }}</dd>
-            </div>
-            <div class="col-12 col-md-6">
-              <dt>Stock Quantity</dt>
-              <dd data-testid="product-detail-stock">{{ product.stockQuantity }}</dd>
-            </div>
-            <div class="col-12 col-md-6">
-              <dt>Status</dt>
-              <dd data-testid="product-detail-status">
-                <span class="badge" [ngClass]="getStatusBadgeClass(product.status)">
-                  {{ product.status }}
-                </span>
-              </dd>
-            </div>
-            <div class="col-12 col-md-6">
-              <dt>Created Date</dt>
-              <dd data-testid="product-detail-created-date">
-                {{ product.createdDate | date: 'yyyy-MM-dd HH:mm' }}
-              </dd>
-            </div>
-            <div class="col-12 col-md-6">
-              <dt>Updated Date</dt>
-              <dd data-testid="product-detail-updated-date">
-                {{ product.updatedDate | date: 'yyyy-MM-dd HH:mm' }}
-              </dd>
-            </div>
-          </dl>
+          <div class="hero-banner">
+            <h3 class="hero-title">{{ product.name }}</h3>
+            <p class="hero-copy">
+              Review the full record before updating price, stock, category, or status.
+            </p>
+          </div>
+
+          <div class="detail-panel mb-4">
+            <dl class="row detail-list mb-0">
+              <div class="col-12 col-md-6">
+                <dt>Product ID</dt>
+                <dd data-testid="product-detail-id">{{ product.id }}</dd>
+              </div>
+              <div class="col-12 col-md-6">
+                <dt>Product Name</dt>
+                <dd data-testid="product-detail-name">{{ product.name }}</dd>
+              </div>
+              <div class="col-12">
+                <dt>Description</dt>
+                <dd data-testid="product-detail-description">{{ product.description || '-' }}</dd>
+              </div>
+              <div class="col-12 col-md-6">
+                <dt>Category</dt>
+                <dd data-testid="product-detail-category">{{ product.category }}</dd>
+              </div>
+              <div class="col-12 col-md-6">
+                <dt>Price</dt>
+                <dd data-testid="product-detail-price">{{ product.price | number: '1.2-2' }}</dd>
+              </div>
+              <div class="col-12 col-md-6">
+                <dt>Stock Quantity</dt>
+                <dd data-testid="product-detail-stock">{{ product.stockQuantity }}</dd>
+              </div>
+              <div class="col-12 col-md-6">
+                <dt>Status</dt>
+                <dd data-testid="product-detail-status">
+                  <span class="badge" [ngClass]="getStatusBadgeClass(product.status)">
+                    {{ product.status }}
+                  </span>
+                </dd>
+              </div>
+              <div class="col-12 col-md-6">
+                <dt>Created Date</dt>
+                <dd data-testid="product-detail-created-date">
+                  {{ product.createdDate | date: 'yyyy-MM-dd HH:mm' }}
+                </dd>
+              </div>
+              <div class="col-12 col-md-6">
+                <dt>Updated Date</dt>
+                <dd data-testid="product-detail-updated-date">
+                  {{ product.updatedDate | date: 'yyyy-MM-dd HH:mm' }}
+                </dd>
+              </div>
+            </dl>
+          </div>
 
           <div class="d-flex flex-column flex-sm-row gap-2">
             <button

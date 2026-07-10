@@ -1,13 +1,29 @@
 .header-shell {
   background:
-    radial-gradient(circle at top left, rgba(223, 241, 255, 0.95), transparent 38%),
-    linear-gradient(135deg, #0d4f8b 0%, #0f5ea8 55%, #2b7dc5 100%);
+    radial-gradient(circle at top left, rgba(31, 166, 154, 0.28), transparent 34%),
+    radial-gradient(circle at top right, rgba(255, 176, 96, 0.3), transparent 24%),
+    linear-gradient(135deg, #102f4a 0%, #184c6d 45%, #0d6c91 100%);
   color: #ffffff;
+  position: relative;
+  overflow: hidden;
+}
+
+.header-shell::after {
+  content: "";
+  position: absolute;
+  inset: auto -8% -62px auto;
+  width: 280px;
+  height: 180px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, 0.18), transparent 65%);
+  pointer-events: none;
 }
 
 .brand-link {
   color: inherit;
   display: inline-block;
+  position: relative;
+  z-index: 1;
 }
 
 .brand-kicker {
@@ -15,22 +31,32 @@
   font-size: 0.8rem;
   text-transform: uppercase;
   letter-spacing: 0.08em;
-  opacity: 0.85;
+  opacity: 0.9;
+  color: #bfeee8;
 }
 
 .brand-title {
-  font-size: 1.9rem;
+  font-size: 2rem;
   font-weight: 700;
+  letter-spacing: -0.03em;
+  text-shadow: 0 10px 28px rgba(0, 0, 0, 0.14);
 }
 
 .nav-button {
   border-radius: 999px;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  color: #0f4f88;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.9);
+  color: #163d61;
   font-weight: 600;
   min-width: 132px;
+  box-shadow: 0 10px 24px rgba(5, 19, 36, 0.14);
+  position: relative;
+  z-index: 1;
 }
 
 .nav-button.active {
-  background-color: #dff1ff;
+  background:
+    linear-gradient(135deg, #def8f4 0%, #ffffff 100%);
+  color: #0c5f72;
+  border-color: rgba(31, 166, 154, 0.28);
 }

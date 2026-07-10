@@ -43,6 +43,7 @@
     </div>
 
     <div class="page-card-body">
+
       <div class="row g-3 align-items-end mb-4">
         <div class="col-12 col-lg-4">
           <label class="form-label field-label" for="search-product">Search Product</label>
@@ -134,10 +135,16 @@
               *ngFor="let product of paginatedProducts"
               data-testid="product-row"
               [attr.data-product-id]="product.id">
-              <td data-testid="product-id">{{ product.id }}</td>
-              <td data-testid="product-name">{{ product.name }}</td>
+              <td data-testid="product-id">
+                <span class="product-id-pill">{{ product.id }}</span>
+              </td>
+              <td data-testid="product-name">
+                <span class="product-name-strong">{{ product.name }}</span>
+              </td>
               <td data-testid="product-category">{{ product.category }}</td>
-              <td data-testid="product-price">{{ product.price | number: '1.2-2' }}</td>
+              <td data-testid="product-price">
+                <span class="price-text">{{ product.price | number: '1.2-2' }}</span>
+              </td>
               <td data-testid="product-stock">{{ product.stockQuantity }}</td>
               <td data-testid="product-status">
                 <span class="badge" [ngClass]="getStatusBadgeClass(product.status)">
@@ -145,10 +152,10 @@
                 </span>
               </td>
               <td>{{ product.updatedDate | date: 'yyyy-MM-dd HH:mm' }}</td>
-              <td>
-                <div class="d-flex flex-wrap gap-2">
+              <td class="actions-cell">
+                <div class="action-button-group">
                   <button
-                    class="btn btn-sm btn-outline-primary"
+                    class="btn btn-sm btn-outline-primary action-button"
                     data-testid="view-product-button"
                     [attr.data-product-id]="product.id"
                     type="button"
@@ -156,7 +163,7 @@
                     View
                   </button>
                   <button
-                    class="btn btn-sm btn-outline-secondary"
+                    class="btn btn-sm btn-outline-secondary action-button"
                     data-testid="edit-product-button"
                     [attr.data-product-id]="product.id"
                     type="button"
@@ -164,7 +171,7 @@
                     Edit
                   </button>
                   <button
-                    class="btn btn-sm btn-outline-danger"
+                    class="btn btn-sm btn-outline-danger action-button"
                     data-testid="delete-product-button"
                     [attr.data-product-id]="product.id"
                     type="button"
