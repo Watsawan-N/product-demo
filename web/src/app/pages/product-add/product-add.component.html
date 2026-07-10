@@ -1,0 +1,24 @@
+<section>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/products">Products</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Add Product</li>
+    </ol>
+  </nav>
+
+  <div class="page-card">
+    <div class="page-card-header">
+      <h2 class="page-title">Add Product</h2>
+      <p class="page-subtitle">Create a new product for demo data and automated testing exercises.</p>
+    </div>
+
+    <div class="page-card-body">
+      <app-product-form
+        mode="add"
+        [submitting]="isSubmitting"
+        (cancel)="onCancel()"
+        (formSubmit)="onSubmit($event)">
+      </app-product-form>
+    </div>
+  </div>
+</section>

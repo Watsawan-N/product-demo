@@ -1,0 +1,25 @@
+<header class="header-shell shadow-sm">
+  <div class="container py-3">
+    <div class="d-flex flex-column flex-lg-row align-items-lg-center justify-content-between gap-3">
+      <div>
+        <a class="brand-link text-decoration-none" routerLink="/products">
+          <span class="brand-kicker">Share Knowledge Demo</span>
+          <h1 class="brand-title mb-0">Product Management Demo</h1>
+        </a>
+      </div>
+
+      <nav aria-label="Main navigation" class="d-flex flex-wrap gap-2">
+        <a
+          class="btn btn-light nav-button"
+          routerLink="/products"
+          routerLinkActive="active"
+          [routerLinkActiveOptions]="{ exact: true }">
+          Product List
+        </a>
+        <a class="btn btn-light nav-button" routerLink="/products/add" routerLinkActive="active">
+          Add Product
+        </a>
+      </nav>
+    </div>
+  </div>
+</header>

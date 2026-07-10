@@ -1,0 +1,49 @@
+<ng-container *ngIf="visible">
+  <div class="dialog-backdrop"></div>
+  <div class="dialog-panel">
+    <section
+      class="dialog-card"
+      [attr.aria-label]="title"
+      [attr.data-testid]="dialogTestId"
+      aria-modal="true"
+      role="dialog">
+      <header class="dialog-card-header">
+        <h2 class="h4 mb-0">{{ title }}</h2>
+      </header>
+
+      <div class="dialog-card-body">
+        <p class="mb-3">{{ message }}</p>
+
+        <div class="d-grid gap-3" *ngIf="dialogData?.productId || dialogData?.productName">
+          <div class="data-chip" *ngIf="dialogData?.productId">
+            <div class="text-muted small mb-1">Product ID</div>
+            <div data-testid="delete-product-id">{{ dialogData?.productId }}</div>
+          </div>
+          <div class="data-chip" *ngIf="dialogData?.productName">
+            <div class="text-muted small mb-1">Product Name</div>
+            <div data-testid="delete-product-name">{{ dialogData?.productName }}</div>
+          </div>
+        </div>
+      </div>
+
+      <footer class="dialog-card-footer">
+        <div class="d-flex flex-column flex-sm-row justify-content-end gap-2">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            [attr.data-testid]="cancelButtonTestId"
+            (click)="cancel.emit()">
+            {{ cancelLabel }}
+          </button>
+          <button
+            class="btn btn-danger"
+            type="button"
+            [attr.data-testid]="confirmButtonTestId"
+            (click)="confirm.emit()">
+            {{ confirmLabel }}
+          </button>
+        </div>
+      </footer>
+    </section>
+  </div>
+</ng-container>

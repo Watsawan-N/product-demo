@@ -1,0 +1,50 @@
+<section>
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a routerLink="/products">Products</a></li>
+      <li class="breadcrumb-item" *ngIf="product">
+        <a [routerLink]="['/products', product.id]">{{ product.id }}</a>
+      </li>
+      <li class="breadcrumb-item active" aria-current="page">Edit Product</li>
+    </ol>
+  </nav>
+
+  <div class="page-card">
+    <div class="page-card-header">
+      <h2 class="page-title">Edit Product</h2>
+      <p class="page-subtitle">Update product details while keeping the original created date.</p>
+    </div>
+
+    <div class="page-card-body">
+      <div *ngIf="isLoading" class="loading-indicator" role="status">
+        <div class="spinner-border spinner-border-sm text-primary" aria-hidden="true"></div>
+        <span>Loading product form...</span>
+      </div>
+
+      <ng-container *ngIf="!isLoading">
+        <ng-container *ngIf="product; else editNotFoundState">
+          <div class="alert alert-light border mb-4">
+            <strong>Product ID:</strong> {{ product.id }}
+          </div>
+
+          <app-product-form
+            mode="edit"
+            [initialProduct]="product"
+            [submitting]="isSubmitting"
+            (cancel)="onCancel()"
+            (formSubmit)="onSubmit($event)">
+          </app-product-form>
+        </ng-container>
+      </ng-container>
+    </div>
+  </div>
+
+  <ng-template #editNotFoundState>
+    <div class="empty-state">
+      <p class="mb-3">Product not found.</p>
+      <button class="btn btn-outline-primary" type="button" (click)="goBackToList()">
+        Back to Product List
+      </button>
+    </div>
+  </ng-template>
+</section>

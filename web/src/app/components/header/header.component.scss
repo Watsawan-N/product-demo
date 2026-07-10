@@ -1,0 +1,36 @@
+.header-shell {
+  background:
+    radial-gradient(circle at top left, rgba(223, 241, 255, 0.95), transparent 38%),
+    linear-gradient(135deg, #0d4f8b 0%, #0f5ea8 55%, #2b7dc5 100%);
+  color: #ffffff;
+}
+
+.brand-link {
+  color: inherit;
+  display: inline-block;
+}
+
+.brand-kicker {
+  display: inline-block;
+  font-size: 0.8rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  opacity: 0.85;
+}
+
+.brand-title {
+  font-size: 1.9rem;
+  font-weight: 700;
+}
+
+.nav-button {
+  border-radius: 999px;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  color: #0f4f88;
+  font-weight: 600;
+  min-width: 132px;
+}
+
+.nav-button.active {
+  background-color: #dff1ff;
+}

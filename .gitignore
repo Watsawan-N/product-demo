@@ -1,0 +1,12 @@
+.DS_Store
+.angular/
+node_modules/
+dist/
+playwright-report/
+test-results/
+web/node_modules/
+web/dist/
+web/coverage/
+automation/node_modules/
+automation/playwright-report/
+automation/test-results/

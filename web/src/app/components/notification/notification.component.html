@@ -1,0 +1,16 @@
+<ng-container *ngIf="notification$ | async as notification">
+  <div
+    class="alert d-flex align-items-start justify-content-between gap-3 mb-4"
+    [class.alert-success]="notification.type === 'success'"
+    [class.alert-danger]="notification.type === 'error'"
+    [attr.data-testid]="notification.type === 'success' ? 'success-message' : 'error-message'"
+    role="alert">
+    <span>{{ notification.message }}</span>
+    <button
+      class="btn btn-sm btn-link text-decoration-none p-0"
+      type="button"
+      (click)="clearNotification()">
+      Dismiss
+    </button>
+  </div>
+</ng-container>
