@@ -64,6 +64,22 @@ export class ProductListPageComponent implements OnInit {
     return Math.max(1, Math.ceil(this.filteredProducts.length / this.state.pageSize));
   }
 
+  get showingStart(): number {
+    if (this.filteredProducts.length === 0) {
+      return 0;
+    }
+
+    return (this.state.pageNumber - 1) * this.state.pageSize + 1;
+  }
+
+  get showingEnd(): number {
+    if (this.filteredProducts.length === 0) {
+      return 0;
+    }
+
+    return Math.min(this.state.pageNumber * this.state.pageSize, this.filteredProducts.length);
+  }
+
   loadProducts(): void {
     this.isLoading = true;
     this.allProducts = this.productService.getProducts();
